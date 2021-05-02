@@ -51,5 +51,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      
-      
+      - name: Kubernetes set context
+        uses: Azure/k8s-set-context@v1
+        with:
+          # Acceptable values: kubeconfig or service-account
+          method: kubeconfig
+          kubeconfig: ${{secrets.KUBERNETS_CONTEXT}}
